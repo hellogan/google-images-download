@@ -560,7 +560,7 @@ class googleimagesdownload:
         if print_urls or no_download:
             print("Image URL: " + image_url)
         if no_download:
-            return "success","Printed url without downloading",None,None
+            return "success","Printed url without downloading",None,image_url
         try:
             req = Request(image_url, headers={
                 "User-Agent": "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.27 Safari/537.17"})
@@ -728,6 +728,7 @@ class googleimagesdownload:
                     object['image_filename'] = return_image_name
                     items.append(object)  # Append all the links in the list named 'Links'
                     abs_path.append(absolute_path)
+                    print("ABS PATH IS " + str(abs_path))
                 else:
                     errorCount += 1
 
